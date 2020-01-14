@@ -18,19 +18,19 @@ document.onkeypress = function(evt) {
     evt = evt || window.event;
     var userGuess = event.key;
     currentWord.innerHTML = "";
+
     if (guessedLetters.includes(userGuess) === false) {
-        if (userGuess) {
             guessedLetters.push(String(userGuess));
-            for (var i = 0; i < wordChallenge.length; i++) {
-                if (guessedLetters.includes(wordChallenge[i])) {
-                    currentWord.innerHTML += wordChallenge[i];
-                }
-                    else if (guessedLetters.includes(wordChallenge[i]) === false) {
-                        currentWord.innerHTML += "_";
-                    }
-            }
             console.log(userGuess);
             console.log(guessedLetters);
+    }
+
+    for (var i = 0; i < wordChallenge.length; i++) {
+        if (guessedLetters.includes(wordChallenge[i])) {
+            currentWord.innerHTML += wordChallenge[i];
+        }
+            else if (guessedLetters.includes(wordChallenge[i]) === false) {
+                currentWord.innerHTML += "_";
             }
     }
 }
