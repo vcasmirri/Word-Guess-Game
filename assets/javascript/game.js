@@ -13,22 +13,30 @@ document.onkeypress = function(evt) {
     evt = evt || window.event;
     var userGuess = event.key;
     if (guessedLetters.includes(userGuess) === false) {
-    if (userGuess) {
-        guessedLetters.push(String(userGuess));
-        console.log(userGuess);
-        console.log(guessedLetters);
-        }
+        if (userGuess) {
+            guessedLetters.push(String(userGuess));
+            for (var i = 0; i < wordChallenge.length; i++) {
+                if (guessedLetters.includes(wordChallenge[i])) {
+                    currentWord.innerHTML += wordChallenge[i];
+                }
+                    else if (guessedLetters.includes(wordChallenge[i]) === false) {
+                        currentWord.innerHTML += "_";
+                    }
+            }
+            console.log(userGuess);
+            console.log(guessedLetters);
+            }
     }
 }
 
-for (var i = 0; i < wordChallenge.length; i++) {
-    if (guessedLetters.includes(wordChallenge[i])) {
-        currentWord.innerHTML = wordChallenge[i];
-    }
-        else {
-            currentWord.innerHTML = "_";
-        }
-}
+// for (var i = 0; i < wordChallenge.length; i++) {
+//     if (guessedLetters.includes(wordChallenge[i])) {
+//         currentWord.innerHTML += wordChallenge[i];
+//     }
+//         else if (guessedLetters.includes(wordChallenge[i]) === false) {
+//             currentWord.innerHTML += "_";
+//         }
+// }
 
 // document.onkeyup = function(event) {
 //     var userGuess = event.key;
